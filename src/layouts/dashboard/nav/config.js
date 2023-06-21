@@ -17,7 +17,7 @@ const navConfig = [
     icon: icon("ic_analytics"),
   },
   {
-    title: "product categories",
+    title: "Project categories",
     path: "/dashboard/categories",
     icon: icon("ic_product"),
   },

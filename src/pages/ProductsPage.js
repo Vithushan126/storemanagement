@@ -25,9 +25,48 @@ export default function ProductsPage() {
     setOpenFilter(false);
   };
 
+  const userData = [
+    { id: 1, name: "Logesh", username: "jvlogesh" },
+    { id: 2, name: "Ramesh", username: "rameshtr" },
+    { id: 3, name: "Daniel", username: "danielradcliff" },
+  ];
+
+  const addUser = (user) => {
+    user.id = users.length + 1;
+    setUsers([...users, user]);
+  };
+  const [users, setUsers] = useState(userData);
+
   return (
     <>
       <h1>Product Page</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Actiions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.length > 0 ? (
+            users.map((user) => (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={3}>No users</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </>
     //     <Helmet>
     //       <title> Dashboard: Products </title>

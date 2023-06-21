@@ -12,6 +12,10 @@ import ProductsPage from "./pages/ProductsPage";
 import BrandPage from "./pages/BrandPage";
 import PurchesePage from "./pages/PurchesePage";
 import DashboardAppPage from "./pages/DashboardAppPage";
+import AddUser from "./components/form/AddUser";
+import EditUser from "./components/form/EditUser";
+import ViewUser from "./components/form/ViewUser";
+import AddProject from "./components/form/AddProject";
 
 // ----------------------------------------------------------------------
 
@@ -29,8 +33,13 @@ export default function Router() {
         { path: "brand", element: <BrandPage /> },
         { path: "purchese", element: <PurchesePage /> },
         { path: "return", element: <ReturnPage /> },
+        { path: "adduser", element: <AddUser /> },
+        { path: "edituser/:id", element: <EditUser /> },
+        { path: "viewuser/:id", element: <ViewUser /> },
+        { path: "addproject", element: <AddProject /> },
       ],
     },
+
     {
       path: "login",
       element: <LoginPage />,

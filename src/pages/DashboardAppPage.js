@@ -2,8 +2,17 @@ import { Helmet } from "react-helmet-async";
 import { faker } from "@faker-js/faker";
 // @mui
 import { useTheme } from "@mui/material/styles";
-import { Grid, Container, Typography } from "@mui/material";
+import {
+  Grid,
+  Container,
+  Typography,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 // components
+import MenuItem from "../components/MenuItem";
 import Iconify from "../components/iconify";
 // sections
 import {
@@ -18,57 +27,185 @@ import {
   AppConversionRates,
 } from "../sections/@dashboard/app";
 
+// import Pic from "./product_24.jpg";
+
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
   const theme = useTheme();
 
+  const project = [
+    {
+      id: 1,
+
+      projectImage: "../src/public/assets/images/covers/cover_24.jpg",
+      alt: "green iguana",
+      projectName: "Snow",
+      projectCode: "Jon",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 2,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Lannister",
+      projectCode: "Cersei",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 3,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Lannister",
+      projectCode: "Jaime",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 4,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Stark",
+      projectCode: "Arya",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 5,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Targaryen",
+      projectCode: "Daenerys",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 6,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Melisandre",
+      projectCode: null,
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 7,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Clifford",
+      projectCode: "Ferrara",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 8,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Frances",
+      projectCode: "Rossini",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+    {
+      id: 9,
+      maxWidth: 300,
+      projectImage: "/static/images/cards/contemplative-reptile.jpg",
+      alt: "green iguana",
+      projectName: "Roxie",
+      projectCode: "Harvey",
+      projectDescription:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    },
+  ];
+
   return (
     <>
-      <Helmet>
-        <title> Dashboard | Minimal UI </title>
-      </Helmet>
-
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography>
 
+        {/* -------------------------CARD--------------------------------------------- */}
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {project.map((card) => (
+            <Card
+              key={card.id}
+              sx={{ maxWidth: card.maxWidth, margin: "10px" }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={card.projectImage}
+                  alt={card.alt}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {card.projectName}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {card.projectCode}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {card.projectDescription}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
+        </div>
         <Grid container spacing={3}>
-          {/* <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Weekly Sales"
+              title="Costomers"
               total={714000}
-              icon={"ant-design:android-filled"}
+              icon={"raphael:customer"}
             />
-          </Grid> */}
+          </Grid>
 
-          {/* <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="New Users"
+              title="Suppliers"
               total={1352831}
               color="info"
-              icon={"ant-design:apple-filled"}
+              icon={"mdi:people-check"}
             />
-          </Grid> */}
-
-          {/* <Grid item xs={12} sm={6} md={3}>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Item Orders"
+              title="Suppliers"
+              total={1352831}
+              color="info"
+              icon={"mdi:people-check"}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <AppWidgetSummary
+              title="Purchase Invoice"
               total={1723315}
               color="warning"
-              icon={"ant-design:windows-filled"}
+              icon={"fa6-solid:file-invoice"}
             />
-          </Grid> */}
+          </Grid>
 
-          {/* <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Bug Reports"
+              title="Sale Invoice"
               total={234}
               color="error"
-              icon={"ant-design:bug-filled"}
+              icon={"vaadin:invoice"}
             />
-          </Grid> */}
+          </Grid>
 
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits

@@ -33,25 +33,31 @@ const Form = () => {
     //     <DataGrid rows={rows} columns={columns} />
     //   </div>
     // </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>vithu</td>
-          <td>jathu</td>
-          <td>
-            <button>Edit</button>
-            <button>Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <form>
+      <div>
+        <label htmlFor="name">
+          ID:
+          <input type="number" id="name" name="id" />
+        </label>
+        <label htmlFor="name">
+          First Name:
+          <input type="text" id="name" name="firstname" />
+        </label>
+        <label htmlFor="name">
+          Last Name:
+          <input type="text" id="name" name="lastname" />
+        </label>
+        <label htmlFor="name">
+          Age:
+          <input type="number" id="name" name="age" />
+        </label>
+        <label htmlFor="name">
+          Full Name:
+          <input type="text" id="name" name="fullname" />
+        </label>
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
   );
 };
 
