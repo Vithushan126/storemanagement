@@ -16,6 +16,7 @@ import AddUser from "./components/form/AddUser";
 import EditUser from "./components/form/EditUser";
 import ViewUser from "./components/form/ViewUser";
 import AddProject from "./components/form/AddProject";
+import ViewProject from "./components/form/ViewProject";
 
 // ----------------------------------------------------------------------
 
@@ -37,6 +38,7 @@ export default function Router() {
         { path: "edituser/:id", element: <EditUser /> },
         { path: "viewuser/:id", element: <ViewUser /> },
         { path: "addproject", element: <AddProject /> },
+        { path: "viewproject", element: <ViewProject /> },
       ],
     },
 

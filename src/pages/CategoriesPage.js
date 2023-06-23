@@ -1,6 +1,11 @@
 import * as React from "react";
 import { Button, Container, Stack, Typography } from "@mui/material";
-import { DataGrid, GridDeleteIcon, GridColDefef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridDeleteIcon,
+  GridColDefef,
+  GridViewColumnIcon,
+} from "@mui/x-data-grid";
 import { Edit, Edit as EditIcon } from "@mui/icons-material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -10,8 +15,11 @@ import Iconify from "../components/iconify";
 
 // import Scrollbar from "../components/scrollbar";
 // import Iconify from "src/components/iconify/Iconify";
+const viewProject = () => {
+  window.location.href = "/dashboard/viewproject";
+};
 
-const columns: GridColDefef[] = [
+const columns = [
   { field: "id", headerName: "ProjectId", width: 70 },
   { field: "projectName", headerName: "ProjectName", width: 130 },
   {
@@ -29,9 +37,10 @@ const columns: GridColDefef[] = [
   {
     field: "actions",
     headerName: "Action",
-    width: 200,
+    width: 250,
     renderCell: (params) => (
       <>
+        {console.log({ params })}
         <Button
           gap="1rem"
           variant="outlined"
@@ -46,6 +55,16 @@ const columns: GridColDefef[] = [
           color="error"
           size="small"
           startIcon={<GridDeleteIcon />}
+          // onClick={() => deleteProject(params.row.id)}
+          // onClick={() => handleDelete(params.row.id)}
+        />
+        &nbsp;&nbsp;
+        <Button
+          onClick={viewProject}
+          variant="outlined"
+          color="error"
+          size="small"
+          startIcon={<GridViewColumnIcon />}
           // onClick={() => deleteProject(params.row.id)}
           // onClick={() => handleDelete(params.row.id)}
         />
